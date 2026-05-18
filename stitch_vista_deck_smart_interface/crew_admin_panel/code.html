@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VISTA-DECK | Yacht Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'metropolis';
+            src: url('https://fonts.cdnfonts.com/css/metropolis');
+        }
+        @font-face {
+            font-family: 'geist';
+            src: url('https://fonts.cdnfonts.com/css/geist');
+        }
+        body {
+            font-family: 'metropolis', sans-serif;
+            background-color: #0b1326;
+            color: #dae2fd;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .polished-edge {
+            border-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), transparent) 1;
+        }
+        .azure-glow {
+            box-shadow: 0 0 20px rgba(0, 163, 255, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-glow {
+            filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.4));
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#3f4852",
+                      "on-background": "#dae2fd",
+                      "surface-container": "#171f33",
+                      "on-error": "#690005",
+                      "on-primary-fixed-variant": "#004a77",
+                      "primary-fixed-dim": "#98cbff",
+                      "on-secondary-container": "#b4b5b5",
+                      "surface-container-lowest": "#060e20",
+                      "surface": "#0b1326",
+                      "on-surface": "#dae2fd",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "surface-container-highest": "#2d3449",
+                      "error": "#ffb4ab",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "tertiary-fixed-dim": "#a8c9f3",
+                      "surface-variant": "#2d3449",
+                      "surface-container-low": "#131b2e",
+                      "primary-fixed": "#cfe5ff",
+                      "on-primary-fixed": "#001d33",
+                      "on-tertiary-container": "#103658",
+                      "inverse-on-surface": "#283044",
+                      "surface-tint": "#98cbff",
+                      "background": "#0b1326",
+                      "on-tertiary": "#0a3254",
+                      "secondary": "#c6c6c7",
+                      "on-tertiary-fixed": "#001d36",
+                      "outline": "#88919d",
+                      "tertiary-fixed": "#d1e4ff",
+                      "on-error-container": "#ffdad6",
+                      "inverse-surface": "#dae2fd",
+                      "on-primary": "#003354",
+                      "error-container": "#93000a",
+                      "on-surface-variant": "#bec7d4",
+                      "tertiary-container": "#7f9fc7",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-secondary-fixed-variant": "#454747",
+                      "on-secondary": "#2f3131",
+                      "surface-container-high": "#222a3d",
+                      "primary-container": "#00a3ff",
+                      "on-primary-container": "#00375a",
+                      "tertiary": "#a8c9f3",
+                      "secondary-container": "#454747",
+                      "surface-dim": "#0b1326",
+                      "on-tertiary-fixed-variant": "#27496c",
+                      "surface-bright": "#31394d",
+                      "primary": "#98cbff",
+                      "inverse-primary": "#00629d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-padding": "40px",
+                      "card-gap": "32px",
+                      "unit": "8px",
+                      "safe-area": "env(safe-area-inset-bottom)"
+              },
+              "fontFamily": {
+                      "headline-lg": ["metropolis"],
+                      "headline-md": ["metropolis"],
+                      "display-lg": ["metropolis"],
+                      "body-lg": ["metropolis"],
+                      "label-sm": ["geist"],
+                      "headline-lg-mobile": ["metropolis"],
+                      "body-md": ["metropolis"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background min-h-screen pb-24">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/30 backdrop-blur-[24px] border-b border-white/10 flex justify-between items-center px-gutter py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary-fixed">VISTA-DECK</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<span class="font-label-sm text-label-sm text-primary-container cursor-pointer uppercase">Bridge</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 transition-colors px-2 py-1 rounded cursor-pointer uppercase">Logs</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 transition-colors px-2 py-1 rounded cursor-pointer uppercase">Guest List</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 transition-colors px-2 py-1 rounded cursor-pointer uppercase">Safety</span>
+</div>
+<span class="material-symbols-outlined text-primary">visibility_off</span>
+</div>
+</header>
+<main class="pt-32 px-gutter max-w-[1400px] mx-auto">
+<!-- Hero Status Overview -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-card-gap mb-card-gap">
+<!-- Engine Card -->
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between h-48 border-l-4 border-l-primary relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest">Main Engine</p>
+<h2 class="font-headline-md text-headline-md text-on-background">1,850 RPM</h2>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">earth_engine</span>
+</div>
+<div class="w-full bg-white/10 h-1 rounded-full mt-4">
+<div class="bg-primary h-full w-[72%] shadow-[0_0_8px_rgba(152,203,255,0.6)]"></div>
+</div>
+<p class="font-label-sm text-label-sm text-primary mt-2">Optimal Thermal Range</p>
+</div>
+<!-- Fuel Card -->
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between h-48 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest">Fuel Reserve</p>
+<h2 class="font-headline-md text-headline-md text-on-background">8,420 L</h2>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">oil_barrel</span>
+</div>
+<div class="flex items-end gap-1 h-12">
+<div class="w-full bg-primary/20 h-[60%]"></div>
+<div class="w-full bg-primary/20 h-[55%]"></div>
+<div class="w-full bg-primary/20 h-[70%]"></div>
+<div class="w-full bg-primary h-[85%]"></div>
+<div class="w-full bg-primary h-[80%]"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">Est. Range: 420 NM</p>
+</div>
+<!-- Battery Card -->
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between h-48 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest">Power Bank</p>
+<h2 class="font-headline-md text-headline-md text-on-background">94%</h2>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">battery_charging_80</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">In: 4.2kW</span>
+<span class="font-label-sm text-label-sm">Out: 1.8kW</span>
+</div>
+<div class="w-full bg-white/10 h-1 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[94%]"></div>
+</div>
+</div>
+<!-- Fresh Water Card -->
+<div class="glass-card p-6 rounded-xl flex flex-col justify-between h-48 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest">Potable Water</p>
+<h2 class="font-headline-md text-headline-md text-on-background">3,100 L</h2>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">water_drop</span>
+</div>
+<div class="relative h-8 flex items-center">
+<svg class="w-full h-full stroke-primary/30 fill-none" viewbox="0 0 100 20">
+<path d="M0 10 Q 25 0, 50 10 T 100 10" stroke-width="1"></path>
+<path d="M0 15 Q 25 5, 50 15 T 100 15" stroke-width="1"></path>
+</svg>
+</div>
+<p class="font-label-sm text-label-sm text-tertiary mt-2">Desalinator: Active</p>
+</div>
+</div>
+<!-- Main Content Area: Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-card-gap">
+<!-- Left Column: Navigation & Maintenance -->
+<div class="lg:col-span-8 flex flex-col gap-card-gap">
+<!-- Data Vis: Consumption -->
+<div class="glass-card p-8 rounded-xl min-h-[400px] flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md text-on-background">Energy &amp; Efficiency Matrix</h3>
+<div class="flex gap-2 bg-white/5 p-1 rounded-lg">
+<button class="font-label-sm text-label-sm px-4 py-2 bg-primary-container text-on-primary-container rounded-md">Real-time</button>
+<button class="font-label-sm text-label-sm px-4 py-2 text-on-surface-variant hover:text-on-background">History</button>
+</div>
+</div>
+<div class="flex-grow flex items-end justify-between gap-4 pb-4">
+<!-- Mock Chart bars -->
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t h-32 hover:bg-primary/40 transition-all"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">00:00</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t h-24 hover:bg-primary/40 transition-all"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">04:00</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t h-48 hover:bg-primary/40 transition-all"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">08:00</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-primary/60 rounded-t h-64 shadow-[0_0_15px_rgba(0,163,255,0.3)]"></div>
+<span class="font-label-sm text-label-sm text-primary">12:00</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t h-56 hover:bg-primary/40 transition-all"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">16:00</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-primary/20 rounded-t h-40 hover:bg-primary/40 transition-all"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">20:00</span>
+</div>
+</div>
+</div>
+<!-- Maintenance Logs -->
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="p-6 border-b border-white/10 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-background">Maintenance Registry</h3>
+<button class="font-label-sm text-label-sm text-primary border border-primary/30 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all uppercase tracking-wider">Log Service</button>
+</div>
+<div class="divide-y divide-white/5">
+<div class="p-6 flex items-center justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">build</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-background">Port Engine Oil Filter Change</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Scheduled for: OCT 12, 2023</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-3 py-1 rounded-full">Pending</span>
+</div>
+<div class="p-6 flex items-center justify-between hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">cleaning_services</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-background">Hull Inspection &amp; Descaling</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Completed: SEP 28, 2023</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed bg-primary-fixed-dim/10 px-3 py-1 rounded-full">Completed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Guests & Safety -->
+<div class="lg:col-span-4 flex flex-col gap-card-gap">
+<!-- Guest Management -->
+<div class="glass-card p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-background">Manifest</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">8 GUESTS ONBOARD</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-white/10">
+<img alt="Guest Photo" class="w-full h-full object-cover" data-alt="A portrait of a distinguished middle-aged male yacht guest, wearing high-end nautical linen clothing. The lighting is soft and natural, suggesting a sunset on a luxury yacht deck. The aesthetic is clean, professional, and affluent, matching a high-fidelity yacht management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmkIKdhFd8uAaGSfvyfq9AvCVFxgYEYqrYrFVcm2H1bmOsp9BtO7bBuvlO_rVqajsJrYGxZri8fXm52FstlbSTsRNHxknS8HVVUjjohsqEHvg7GVELDNcv9QOpS4Y3BKosEULTyB18iaCKxYN8MpeWUmbXvrOudz3d596fcuLNCQ2RFpjTMPWIykuWajF152yTkse1DT9-lTgRIOA3NcwEU85ED_IivpRqS5LtOEvorvnVi284AMtu8ycqgrS54eTU9lDiZzvJvBg7"/>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-body-md text-on-background">Arthur Vanderbilt</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Owner Suite · VIP</p>
+</div>
+<span class="w-3 h-3 rounded-full bg-primary active-glow"></span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-white/10">
+<img alt="Guest Photo" class="w-full h-full object-cover" data-alt="A portrait of a sophisticated female yacht guest in professional attire. The background is softly blurred, showing the refined interior of a modern luxury yacht cabin. The visual style is polished and high-end, utilizing a color palette of deep navies and soft whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcbbWmtHQFZ8fd-ZqCc1O0hkk_6sn1_kU9FLQUndrA5-bx9Hqgrntb1iN5hfwg3s8arcPOE4Sc8om5ChfhDSgUAMLckg7_3zj79chtCDBqWpxq27IBeVAzszIsV205g8jOR3DveJz1LF5fWdFFH59b546IWvbmuQkDS-p8D4M_Iylf47CJdcrOOFXWhhi_y6ifhOCsuJSGwKHYM2gGVP84ASQp9yRDh9jRFmc1rSvZr8LBhCZElGhUBz_YcWFOvdE2ac8KeEMXbwQ3"/>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-body-md text-on-background">Elena Petrova</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Portside A · Guest</p>
+</div>
+<span class="w-3 h-3 rounded-full bg-primary active-glow"></span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-lg border border-white/10 font-label-sm text-label-sm hover:bg-white/5 transition-all text-on-surface-variant uppercase tracking-widest">View Detailed Manifest</button>
+</div>
+<!-- Safety Protocol Toggles -->
+<div class="glass-card p-6 rounded-xl border border-error/20">
+<h3 class="font-headline-md text-headline-md text-on-background mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-error">verified_user</span>
+                        Safety Deck
+                    </h3>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<div>
+<p class="font-body-md text-body-md text-on-background">Auto-Anchorage</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">GPS Locking engaged</p>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="font-body-md text-body-md text-on-background">Bilge Alert</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Sensors: Nominal</p>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center opacity-60">
+<div>
+<p class="font-body-md text-body-md text-on-background">Fire Suppression</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Armed · Standard Mode</p>
+</div>
+<div class="w-12 h-6 bg-white/10 rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-error-container/20 border border-error/30 rounded-lg">
+<div class="flex items-center gap-2 text-error mb-2">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">Emergency Override</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-error-container">Deploy life-rafts and initiate SOS beacon transmission immediately.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/30 backdrop-blur-[40px] border-t border-white/10 flex justify-around items-center px-4 pb-safe h-20">
+<div class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_8px_rgba(0,163,255,0.4)] scale-110 transition-transform duration-300 cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Glass</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">wb_twilight</span>
+<span class="font-label-sm text-label-sm mt-1">Light</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">air</span>
+<span class="font-label-sm text-label-sm mt-1">Climate</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">deck</span>
+<span class="font-label-sm text-label-sm mt-1">Deck</span>
+</div>
+</nav>
+</body></html>

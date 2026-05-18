@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VISTA-DECK | Circadian Lighting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'metropolis';
+            src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap');
+        }
+        @font-face {
+            font-family: 'geist';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        }
+        body {
+            font-family: 'metropolis', sans-serif;
+            background-color: #0b1326;
+            color: #dae2fd;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .azure-glow {
+            box-shadow: 0 0 20px rgba(0, 163, 255, 0.15);
+        }
+        .polished-border {
+            border-image: linear-gradient(to bottom right, rgba(255,255,255,0.2), transparent) 1;
+        }
+        .temp-wheel {
+            background: conic-gradient(from 180deg, #ff9500, #ffcc00, #ffffff, #98cbff, #00a3ff);
+            border-radius: 50%;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#a8c9f3",
+                    "surface-container-low": "#131b2e",
+                    "primary-fixed": "#cfe5ff",
+                    "surface-variant": "#2d3449",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#2d3449",
+                    "surface-container-lowest": "#060e20",
+                    "surface": "#0b1326",
+                    "on-surface": "#dae2fd",
+                    "primary-fixed-dim": "#98cbff",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#004a77",
+                    "surface-container": "#171f33",
+                    "outline-variant": "#3f4852",
+                    "on-background": "#dae2fd",
+                    "secondary": "#c6c6c7",
+                    "on-tertiary": "#0a3254",
+                    "background": "#0b1326",
+                    "surface-tint": "#98cbff",
+                    "on-tertiary-container": "#103658",
+                    "inverse-on-surface": "#283044",
+                    "on-primary-fixed": "#001d33",
+                    "on-surface-variant": "#bec7d4",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#dae2fd",
+                    "on-error-container": "#ffdad6",
+                    "on-primary": "#003354",
+                    "tertiary-fixed": "#d1e4ff",
+                    "outline": "#88919d",
+                    "on-tertiary-fixed": "#001d36",
+                    "inverse-primary": "#00629d",
+                    "primary": "#98cbff",
+                    "surface-bright": "#31394d",
+                    "surface-dim": "#0b1326",
+                    "on-tertiary-fixed-variant": "#27496c",
+                    "secondary-container": "#454747",
+                    "on-primary-container": "#00375a",
+                    "tertiary": "#a8c9f3",
+                    "on-secondary": "#2f3131",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#454747",
+                    "primary-container": "#00a3ff",
+                    "surface-container-high": "#222a3d",
+                    "tertiary-container": "#7f9fc7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-padding": "40px",
+                    "card-gap": "32px",
+                    "unit": "8px",
+                    "safe-area": "env(safe-area-inset-bottom)"
+            },
+            "fontFamily": {
+                    "headline-lg": ["metropolis"],
+                    "display-lg": ["metropolis"],
+                    "headline-md": ["metropolis"],
+                    "body-lg": ["metropolis"],
+                    "label-sm": ["geist"],
+                    "headline-lg-mobile": ["metropolis"],
+                    "body-md": ["metropolis"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-surface/30 backdrop-blur-[24px] border-b border-white/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg text-[24px] md:text-display-lg tracking-tighter text-primary dark:text-primary-fixed">VISTA-DECK</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 px-3 py-1 rounded transition-colors cursor-pointer">BRIDGE</span>
+<span class="font-label-sm text-label-sm text-primary-container px-3 py-1 rounded cursor-pointer">LIGHTING</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 px-3 py-1 rounded transition-colors cursor-pointer">SYSTEMS</span>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer">visibility_off</span>
+</div>
+</header>
+<main class="pt-24 px-gutter max-w-7xl mx-auto space-y-card-gap">
+<!-- Hero Section / Title -->
+<section class="mt-8">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Circadian Lighting</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">Harmonize the interior ambiance with the natural maritime light cycles. Advanced spectral control for health and serenity.</p>
+</section>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-card-gap">
+<!-- Left Column: Scene Triggers -->
+<div class="lg:col-span-8 space-y-card-gap">
+<div class="flex items-center justify-between">
+<h3 class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Instant Scenes</h3>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live: Morning Glow</span>
+</div>
+</div>
+<!-- Bento Grid of Scenes -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<!-- Morning Glow -->
+<button class="glass-card p-6 flex flex-col items-center gap-4 rounded-xl active:scale-95 transition-all border-primary-container/40 azure-glow">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Morning Glow</span>
+</button>
+<!-- Midnight Azure -->
+<button class="glass-card p-6 flex flex-col items-center gap-4 rounded-xl hover:bg-white/5 transition-all">
+<div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">nights_stay</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Midnight Azure</span>
+</button>
+<!-- Zen -->
+<button class="glass-card p-6 flex flex-col items-center gap-4 rounded-xl hover:bg-white/5 transition-all">
+<div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">self_improvement</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Zen</span>
+</button>
+<!-- Social -->
+<button class="glass-card p-6 flex flex-col items-center gap-4 rounded-xl hover:bg-white/5 transition-all">
+<div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">groups</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Social</span>
+</button>
+</div>
+<!-- Live Environment View -->
+<div class="relative h-[300px] rounded-2xl overflow-hidden glass-card group">
+<img alt="Yacht Interior" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic, wide-angle shot of a futuristic yacht saloon interior during the golden hour. The space features curved glass floor-to-ceiling windows showing a calm, deep blue ocean at sunset. Soft, warm amber lighting emanates from recessed ceiling channels, creating a serene, high-end atmosphere. The furniture is minimalist and white, reflecting the ethereal glow and polished glass aesthetic of the vessel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgwlXyJVjDkwlzJaekwiVDHaSRbflBGJAs6e4SVWWjl4k9brHFUPruI6FmRq-GrLfy1i5L4gx7tOZLAwBPGnuV9RhEi7h-YzMkxQKLV1mJY2Tvu5bMXFswgWJwzmtZA-eclBa6XO7EIeRA2u51LgNp1N85_pT_GVBgyvb5QKc_g6K2O0A7h4VlA258ClN1VQ64cET4tls5HKFad3msCQKF7dvHRo_DG7YX1VCiNrZBL1fSTQwNBZ0Sd0Dbh1k7yOsSHQ0jgtMFNC73"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Aft Deck Preview</p>
+<p class="font-headline-md text-headline-md text-white">Active Simulation</p>
+</div>
+<div class="absolute top-6 right-6 flex gap-2">
+<span class="glass-card px-3 py-1 rounded-full text-[10px] font-label-sm text-white">4200K</span>
+<span class="glass-card px-3 py-1 rounded-full text-[10px] font-label-sm text-white">85% LUM</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Controls -->
+<div class="lg:col-span-4 space-y-card-gap">
+<!-- Color Temperature Wheel -->
+<div class="glass-card p-8 rounded-3xl flex flex-col items-center gap-8">
+<h3 class="font-label-sm text-label-sm text-primary tracking-widest uppercase self-start">Spectral Control</h3>
+<div class="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
+<!-- The Wheel -->
+<div class="absolute inset-0 temp-wheel opacity-40 blur-sm"></div>
+<div class="absolute inset-4 temp-wheel border-4 border-white/20"></div>
+<!-- Center Display -->
+<div class="relative z-10 w-32 h-32 rounded-full glass-card flex flex-col items-center justify-center azure-glow">
+<span class="font-display-lg text-[32px] text-primary">5600</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">KELVIN</span>
+</div>
+<!-- Selector Handle -->
+<div class="absolute top-0 w-8 h-8 rounded-full bg-white border-4 border-primary-container shadow-[0_0_15px_rgba(0,163,255,0.6)] translate-y-[-50%]"></div>
+</div>
+<div class="flex justify-between w-full px-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">WARM</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">COOL</span>
+</div>
+</div>
+<!-- Brightness Control -->
+<div class="glass-card p-8 rounded-3xl space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Luminosity</h3>
+<span class="font-headline-md text-headline-md text-on-surface">85%</span>
+</div>
+<!-- Environmental Slider -->
+<div class="relative h-12 flex items-center">
+<div class="absolute inset-x-0 h-[2px] bg-white/20 rounded-full"></div>
+<div class="absolute inset-x-0 left-0 h-[2px] bg-primary-container rounded-full" style="width: 85%;"></div>
+<div class="absolute left-[85%] w-6 h-6 rounded-full bg-primary-container border-2 border-white azure-glow shadow-[0_0_20px_#00a3ff] translate-x-[-50%] cursor-pointer"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 glass-card rounded-xl hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">flare</span>
+<span class="font-label-sm text-label-sm">MAX</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 glass-card rounded-xl hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">low_priority</span>
+<span class="font-label-sm text-label-sm">NIGHT</span>
+</button>
+</div>
+</div>
+<!-- Status Chip Area -->
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 px-4 py-2 glass-card rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-sm text-label-sm text-on-surface">System Optimal</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 glass-card rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Smart-Tint Active</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-20 bg-surface/30 backdrop-blur-[40px] border-t border-white/10">
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Glass</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_8px_rgba(0,163,255,0.4)] scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wb_twilight</span>
+<span class="font-label-sm text-label-sm mt-1">Light</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all">
+<span class="material-symbols-outlined">air</span>
+<span class="font-label-sm text-label-sm mt-1">Climate</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all">
+<span class="material-symbols-outlined">deck</span>
+<span class="font-label-sm text-label-sm mt-1">Deck</span>
+</button>
+</nav>
+</body></html>

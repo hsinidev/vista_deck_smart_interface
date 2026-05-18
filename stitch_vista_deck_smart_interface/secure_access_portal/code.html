@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline-variant": "#3f4852",
+                  "on-background": "#dae2fd",
+                  "surface-container": "#171f33",
+                  "on-error": "#690005",
+                  "on-primary-fixed-variant": "#004a77",
+                  "primary-fixed-dim": "#98cbff",
+                  "on-secondary-container": "#b4b5b5",
+                  "surface-container-lowest": "#060e20",
+                  "surface": "#0b1326",
+                  "on-surface": "#dae2fd",
+                  "secondary-fixed-dim": "#c6c6c7",
+                  "surface-container-highest": "#2d3449",
+                  "error": "#ffb4ab",
+                  "on-secondary-fixed": "#1a1c1c",
+                  "tertiary-fixed-dim": "#a8c9f3",
+                  "surface-variant": "#2d3449",
+                  "surface-container-low": "#131b2e",
+                  "primary-fixed": "#cfe5ff",
+                  "on-primary-fixed": "#001d33",
+                  "on-tertiary-container": "#103658",
+                  "inverse-on-surface": "#283044",
+                  "surface-tint": "#98cbff",
+                  "background": "#0b1326",
+                  "on-tertiary": "#0a3254",
+                  "secondary": "#c6c6c7",
+                  "on-tertiary-fixed": "#001d36",
+                  "outline": "#88919d",
+                  "tertiary-fixed": "#d1e4ff",
+                  "on-error-container": "#ffdad6",
+                  "inverse-surface": "#dae2fd",
+                  "on-primary": "#003354",
+                  "error-container": "#93000a",
+                  "on-surface-variant": "#bec7d4",
+                  "tertiary-container": "#7f9fc7",
+                  "secondary-fixed": "#e2e2e2",
+                  "on-secondary-fixed-variant": "#454747",
+                  "on-secondary": "#2f3131",
+                  "surface-container-high": "#222a3d",
+                  "primary-container": "#00a3ff",
+                  "on-primary-container": "#00375a",
+                  "tertiary": "#a8c9f3",
+                  "secondary-container": "#454747",
+                  "surface-dim": "#0b1326",
+                  "on-tertiary-fixed-variant": "#27496c",
+                  "surface-bright": "#31394d",
+                  "primary": "#98cbff",
+                  "inverse-primary": "#00629d"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "gutter": "24px",
+                  "container-padding": "40px",
+                  "card-gap": "32px",
+                  "unit": "8px",
+                  "safe-area": "env(safe-area-inset-bottom)"
+          },
+          "fontFamily": {
+                  "headline-lg": ["metropolis"],
+                  "headline-md": ["metropolis"],
+                  "display-lg": ["metropolis"],
+                  "body-lg": ["metropolis"],
+                  "label-sm": ["geist"],
+                  "headline-lg-mobile": ["metropolis"],
+                  "body-md": ["metropolis"]
+          },
+          "fontSize": {
+                  "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                  "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                  "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>body {
+    background-color: #0b1326;
+    margin: 0;
+    padding: 0
+    }
+.glass-panel {
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }
+.azure-glow-active {
+    box-shadow: 0 0 15px rgba(0, 163, 255, 0.15)
+    }
+.hero-bg {
+    background-image: linear-gradient(to bottom, rgba(11, 19, 38, 0.4), rgba(11, 19, 38, 0.9)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCQFWAlbe2VlLtPkSJhmYd5BgULVU6B0Q6CsyNglznEyLOmBpVYGKFImd9DcDj5mHCkPx6yMN66XoODShHP6Tk4axJa_fL7KohgjaSTmUj5VvZRucapffwuRDuOhss2Mf2_OX0guZSEWYScq5I-nOwxObeBjjAEKjq2Rjvkrcz9AI-LzdYTGNTHK5RTq1dfnMJun6a8vpkHOe2FUoMHzbdr7rQ0F9Qry-Aac8gsmeBT1jOGiBJzUZK1bi2oIhC0sz4kHw7oLDp54iXN);
+    background-size: cover;
+    background-position: center
+    }</style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Layer -->
+<div class="fixed inset-0 hero-bg z-0" data-alt="A luxurious high-end yacht bridge interior at dusk overlooking a serene deep blue ocean. The cockpit features polished dark woods and sleek carbon fiber details, with large expansive windows showing a faint horizon line. The lighting is ethereal and cool-toned with soft azure glows from integrated dashboard telemetry. The atmosphere is quiet, technological, and premium, perfectly capturing a sense of high-performance maritime serenity."></div>
+<!-- Top Bar Suppression: No Navigation on Auth Screen -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-surface/30 backdrop-blur-[24px] border-b border-white/10">
+<div class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary-fixed">VISTA-DECK</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="visibility_off">visibility_off</span>
+</div>
+</header>
+<main class="relative z-10 min-h-screen flex items-center justify-center px-gutter py-20">
+<div class="w-full max-w-lg">
+<!-- Auth Glass Container -->
+<div class="glass-panel rounded-xl p-container-padding flex flex-col gap-card-gap">
+<!-- Header & Switcher -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">System Access</h1>
+<div class="bg-surface-container-low p-1 rounded-lg flex gap-1">
+<button class="px-4 py-2 rounded-lg font-label-sm text-label-sm bg-primary-container text-on-primary-container transition-all">Sign In</button>
+<button class="px-4 py-2 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:bg-white/5 transition-all">Sign Up</button>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant/70">Connect to your vessel's smart environmental grid.</p>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col gap-6">
+<!-- Yacht ID Input -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary tracking-widest">VESSEL IDENTITY</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="directions_boat">directions_boat</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 focus:border-primary-container focus:ring-0 focus:outline-none transition-all placeholder:text-on-surface-variant/30 text-body-md font-body-md" placeholder="Enter Yacht ID" type="text"/>
+</div>
+</div>
+<!-- Secondary Verification -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary tracking-widest">COMMAND PASSCODE</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="lock">lock</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 focus:border-primary-container focus:ring-0 focus:outline-none transition-all placeholder:text-on-surface-variant/30 text-body-md font-body-md" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Biometric Auth Section -->
+<div class="glass-panel p-6 rounded-xl flex items-center justify-between group cursor-pointer hover:border-primary-container/50 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-container" data-icon="fingerprint">fingerprint</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface">Biometric Link</div>
+<div class="font-body-md text-on-surface-variant/50 text-sm">Scan Retina or TouchID</div>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,163,255,0.6)]"></div>
+</div>
+</div>
+<!-- Action Section -->
+<div class="space-y-6">
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-headline-md text-headline-md rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all azure-glow-active">
+<span>Authorize Deck</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex justify-between items-center px-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Forgot Vessel ID?</a>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#00FF94] shadow-[0_0_6px_rgba(0,255,148,0.4)]"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">Encrypted Bridge Access</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Telemetry Overlay (Aesthetic) -->
+<div class="mt-8 flex justify-center gap-12 text-on-surface-variant/40">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="security">security</span>
+<span class="text-[10px] uppercase tracking-tighter mt-1">256-Bit SSL</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-[10px] uppercase tracking-tighter mt-1">Geofence Active</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="encrypted">encrypted</span>
+<span class="text-[10px] uppercase tracking-tighter mt-1">Vault Secure</span>
+</div>
+</div>
+</div>
+</main>
+<!-- No Bottom Nav on Login Screen as per "The Destination Rule" -->
+</body></html>

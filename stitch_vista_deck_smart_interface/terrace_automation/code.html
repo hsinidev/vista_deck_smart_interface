@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Vista-Deck | Terrace Automation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#a8c9f3",
+                    "surface-container-low": "#131b2e",
+                    "primary-fixed": "#cfe5ff",
+                    "surface-variant": "#2d3449",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#2d3449",
+                    "surface-container-lowest": "#060e20",
+                    "surface": "#0b1326",
+                    "on-surface": "#dae2fd",
+                    "primary-fixed-dim": "#98cbff",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#004a77",
+                    "surface-container": "#171f33",
+                    "outline-variant": "#3f4852",
+                    "on-background": "#dae2fd",
+                    "secondary": "#c6c6c7",
+                    "on-tertiary": "#0a3254",
+                    "background": "#0b1326",
+                    "surface-tint": "#98cbff",
+                    "on-tertiary-container": "#103658",
+                    "inverse-on-surface": "#283044",
+                    "on-primary-fixed": "#001d33",
+                    "on-surface-variant": "#bec7d4",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#dae2fd",
+                    "on-error-container": "#ffdad6",
+                    "on-primary": "#003354",
+                    "tertiary-fixed": "#d1e4ff",
+                    "outline": "#88919d",
+                    "on-tertiary-fixed": "#001d36",
+                    "inverse-primary": "#00629d",
+                    "primary": "#98cbff",
+                    "surface-bright": "#31394d",
+                    "surface-dim": "#0b1326",
+                    "on-tertiary-fixed-variant": "#27496c",
+                    "secondary-container": "#454747",
+                    "on-primary-container": "#00375a",
+                    "tertiary": "#a8c9f3",
+                    "on-secondary": "#2f3131",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#454747",
+                    "primary-container": "#00a3ff",
+                    "surface-container-high": "#222a3d",
+                    "tertiary-container": "#7f9fc7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-padding": "40px",
+                    "card-gap": "32px",
+                    "unit": "8px",
+                    "safe-area": "env(safe-area-inset-bottom)"
+            },
+            "fontFamily": {
+                    "headline-lg": ["metropolis"],
+                    "display-lg": ["metropolis"],
+                    "headline-md": ["metropolis"],
+                    "body-lg": ["metropolis"],
+                    "label-sm": ["geist"],
+                    "headline-lg-mobile": ["metropolis"],
+                    "body-md": ["metropolis"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .polished-edge {
+            border-image: linear-gradient(to bottom right, rgba(255,255,255,0.2), transparent) 1;
+        }
+        .azure-glow {
+            box-shadow: 0 0 20px rgba(0, 163, 255, 0.15);
+        }
+        .pulse-azure {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(.33); opacity: 1; }
+            80%, 100% { transform: scale(1); opacity: 0; }
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.1);
+            height: 2px;
+            border-radius: 9999px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #00a3ff;
+            box-shadow: 0 0 10px rgba(0, 163, 255, 0.8);
+            cursor: pointer;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/30 backdrop-blur-[24px] border-b border-white/10 flex justify-between items-center px-gutter py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors">menu</span>
+<h1 class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-primary-fixed">VISTA-DECK</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors">visibility_off</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-gutter max-w-7xl mx-auto space-y-card-gap">
+<!-- Hero: 3D Deck Overview -->
+<section class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden glass-panel">
+<img alt="Luxury Yacht Deck Overview" class="w-full h-full object-cover opacity-60" data-alt="A wide-angle, hyper-realistic 3D rendering of a futuristic luxury yacht's expansive aft deck. The setting is a serene twilight ocean with soft orange and purple hues reflecting on calm water. The deck features minimalist teak wood, sleek white glass railings, and glowing blue recessed lighting. Retractable white mesh awnings are partially extended over modular azure-colored outdoor sofas. The mood is tranquil and technologically advanced, following a clean maritime aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5hr9wWHdM2a-nnWUmGXQ_q2_Pi1A9Ov-b4dxh060LVHu2ob-SiSibcWeobJMayrgLthhIS2YPk0aFzntOM97pK4I1yeJuFOZrItfJ4EOQkbxErFEMjQ5DM68R6XYreLSWT8P7vE8uYPkdvXxoxsCslaK-Bw-ip3oXxQ3NBXUUaOVZZPq81pWHDXlypxLTNSP0t89JUlCxoSMykft-sCoaqK4otXC4SgqsE6CzCoD1KgWuhKXqoenbjkEKyJedyCTZ4yCs2g0NrOB2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<!-- Hotspots -->
+<button class="absolute top-[30%] left-[25%] group">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-8 h-8 rounded-full bg-primary-container/30 pulse-azure"></div>
+<div class="w-4 h-4 rounded-full bg-primary-container border-2 border-white/40 shadow-[0_0_12px_rgba(0,163,255,1)]"></div>
+</div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 glass-panel px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+<span class="font-label-sm text-label-sm text-primary uppercase">Foredeck Misters</span>
+</div>
+</button>
+<button class="absolute top-[45%] right-[20%] group">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-8 h-8 rounded-full bg-primary-container/30 pulse-azure"></div>
+<div class="w-4 h-4 rounded-full bg-primary-container border-2 border-white/40 shadow-[0_0_12px_rgba(0,163,255,1)]"></div>
+</div>
+<div class="absolute top-8 left-1/2 -translate-x-1/2 glass-panel px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+<span class="font-label-sm text-label-sm text-primary uppercase">Main Awning</span>
+</div>
+</button>
+<div class="absolute bottom-6 left-6">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Main Terrace</h2>
+<p class="text-on-surface-variant font-body-md">Environment: Calm • 24°C • 12kt NW</p>
+</div>
+</section>
+<!-- Control Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-card-gap">
+<!-- Retractable Awnings -->
+<div class="md:col-span-8 glass-panel p-6 rounded-xl space-y-6">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">wb_shade</span>
+<h3 class="font-headline-md text-headline-md">Retractable Awnings</h3>
+</div>
+<div class="flex items-center gap-2 glass-panel px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-primary pulse-azure"></div>
+<span class="font-label-sm text-label-sm text-primary">SMART-TINT ACTIVE</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="space-y-4">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>EXTENSION</span>
+<span class="text-primary">75%</span>
+</div>
+<input class="w-full" max="100" min="0" type="range" value="75"/>
+<div class="flex justify-between gap-4">
+<button class="flex-1 py-3 border border-primary-container text-primary-container rounded-lg font-label-sm uppercase hover:bg-primary-container/5 transition-all">Retract</button>
+<button class="flex-1 py-3 bg-primary-container/20 border border-primary-container text-white rounded-lg font-label-sm uppercase hover:bg-primary-container/30 transition-all">Extend</button>
+</div>
+</div>
+<div class="flex items-center justify-center glass-panel rounded-lg p-4 border-dashed border-white/5">
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">air</span>
+<p class="text-on-surface-variant font-label-sm">WIND PROTECTION</p>
+<p class="font-headline-md text-primary">AUTO-RETRACT: OFF</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Telemetry Gauges -->
+<div class="md:col-span-4 glass-panel p-6 rounded-xl flex flex-col justify-between">
+<h3 class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Wind &amp; Deck Telemetry</h3>
+<div class="flex justify-around items-end">
+<div class="text-center space-y-2">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="4"></circle>
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="#00a3ff" stroke-dasharray="251.2" stroke-dashoffset="60" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-on-surface leading-none">12</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant">KNOTS</span>
+</div>
+</div>
+<span class="font-label-sm text-on-surface-variant">WIND SPEED</span>
+</div>
+<div class="text-center space-y-2">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="4"></circle>
+<circle cx="48" cy="48" fill="transparent" r="40" stroke="#00a3ff" stroke-dasharray="251.2" stroke-dashoffset="180" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-on-surface leading-none">24°</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant">CELSIUS</span>
+</div>
+</div>
+<span class="font-label-sm text-on-surface-variant">SURFACE TEMP</span>
+</div>
+</div>
+</div>
+<!-- Deck Misting Systems -->
+<div class="md:col-span-5 glass-panel p-6 rounded-xl space-y-6">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">air</span>
+<h3 class="font-headline-md text-headline-md">Deck Misting</h3>
+</div>
+<div class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary-container/20 transition-colors duration-200 ease-in-out">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-primary-container shadow ring-0 transition duration-200 ease-in-out"></span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>INTENSITY</span>
+<span class="text-primary">LOW FLOW</span>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 glass-panel rounded-lg text-primary border-primary/40 font-label-sm">PULSE</button>
+<button class="flex-1 py-2 glass-panel rounded-lg text-white/40 border-white/5 font-label-sm">CONSTANT</button>
+<button class="flex-1 py-2 glass-panel rounded-lg text-white/40 border-white/5 font-label-sm">TURBO</button>
+</div>
+</div>
+</div>
+<!-- Terrace Lighting -->
+<div class="md:col-span-7 glass-panel p-6 rounded-xl space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">wb_twilight</span>
+<h3 class="font-headline-md text-headline-md">Terrace Lighting</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-4">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>LUMINOSITY</span>
+<span class="text-primary">40%</span>
+</div>
+<input class="w-full" max="100" min="0" type="range" value="40"/>
+</div>
+<div class="space-y-4">
+<span class="font-label-sm text-on-surface-variant uppercase">PRESETS</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full glass-panel border-primary-container text-primary font-label-sm cursor-pointer azure-glow">OCEAN BLUE</span>
+<span class="px-3 py-1 rounded-full glass-panel border-white/10 text-on-surface-variant font-label-sm cursor-pointer hover:border-primary transition-colors">ZEN GOLD</span>
+<span class="px-3 py-1 rounded-full glass-panel border-white/10 text-on-surface-variant font-label-sm cursor-pointer hover:border-primary transition-colors">MOONLIGHT</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/30 backdrop-blur-[40px] border-t border-white/10 flex justify-around items-center px-4 pb-safe h-20">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Glass</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">wb_twilight</span>
+<span class="font-label-sm text-label-sm">Light</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined">air</span>
+<span class="font-label-sm text-label-sm">Climate</span>
+</div>
+<!-- Active Tab: Deck -->
+<div class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_8px_rgba(0,163,255,0.4)] scale-110 transition-transform duration-300 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">deck</span>
+<span class="font-label-sm text-label-sm">Deck</span>
+</div>
+</nav>
+</body></html>
